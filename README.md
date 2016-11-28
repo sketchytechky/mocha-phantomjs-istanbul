@@ -23,6 +23,15 @@ You'll probably not be running this from the command line, but you could:
 phantomjs ./node_modules/mocha-phantomjs/lib/mocha-phantomjs.coffee test-runner.html spec '{"hooks": "mocha-phantomjs-istanbul", "coverageFile": ".coverage.json"}'
 ```
 
+### Output `lcov` format
+
+You can output in `lcov` format (e.g. for [coverall](https://github.com/nickmerwin/node-coveralls) support) by specifying a setting for `lcovFile`
+
+```shell
+mocha-phantomjs test-runner.html --hooks mocha-phantomjs-istanbul -s lcovFile=coverage/lcov.info
+coveralls < coverage/lcov.info
+```
+
 ### gulp
 It's more likely you'll run this from [gulp](http://gulpjs.com) with [gulp-mocha-phantomjs](https://github.com/mrhooray/gulp-mocha-phantomjs). The options get passed through using `phantomjs`.
 
